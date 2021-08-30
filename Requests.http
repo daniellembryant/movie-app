@@ -1,2 +1,46 @@
 POST http://localhost:3000/single_actor_query?actor=violadavis
 Content-Type: application/json
+
+###
+POST http://localhost:3000/actors
+Content-Type: application/json
+
+{
+  "first_name" : "Angelina",
+  "last_name" : "Jolie",
+  "known_for" : "Girl Interrupted"
+}
+
+###
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title" : "Space Jam: A New Legacy", 
+  "year" : 2021,
+  "plot" : "Superstar LeBron James and his young son, Dom, get trapped in digital space by a rogue AI. To get home safely, LeBron teams up with Bugs Bunny, Daffy Duck and the rest of the Looney Tunes gang for a high-stakes basketball game against the AI's digitized champions of the court -- a powered-up roster called the Goon Squad."
+}
+
+###
+PATCH http://localhost:3000/actors/10
+Content-Type: application/json
+
+{
+  "known_for" : "The Help"
+}
+
+###
+PATCH http://localhost:3000/movies/3
+Content-Type: application/json
+
+{
+  "plot" : "Competition between the maid of honor and a bridesmaid, over who is the bride's best friend, threatens to upend the life of an out-of-work pastry chef/ childhood best friend."
+}
+
+###
+DELETE http://localhost:3000/actors/11
+
+###
+DELETE http://localhost:3000/movies/5
+
+

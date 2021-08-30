@@ -1,14 +1,39 @@
 class MoviesTwosController < ApplicationController
 
-  def movies_twos_method
+  def index
+    movies = Movie.all
+    render json: movies
+  end
 
-    movie = Movie.last
-    render json: movie
+  def create
+    movie = Movie.new(
+      title: params[:title],
+      year: params[:year],
+      plot: params[:plot],
+    )
+    movie.save
+    render json: movie.as_json
+  end
+
+  def show
+    movie = Movie.find(params[:id])
+    render json: movie.as_json
+  end
+
+  def update
+    movie = Movie.find(params[:id])
+    movie.title = params[:title] || movie.title
+    movie.year = params[:year] || movie.year
+    movie.plot = params[:plot] || movie.plot
+    movie.save
+    render json: movie.as_json
     
   end
 
-  def all_movies_method
-    movies = Movie.all
-    render json: movies
+  def destroy
+    movie = Movie.find(params[:id])
+    movie.destroy
+    render json: {messgae: "Completed"}
+    
   end
 end

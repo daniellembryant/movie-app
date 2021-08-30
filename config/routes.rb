@@ -1,8 +1,25 @@
 Rails.application.routes.draw do
-  get "/actor", controller: "movies", action: "actors_method" 
-  get "/movie", controller: "movies_twos", action: "movies_twos_method" 
-  get "/all_movies", controller: "movies_twos", action: "all_movies_method" 
-  get "single_actor_query", controller: "movies", action: "single_actor_query"
-  get "/single_actor_url_segment/:input", controller: "movies", action: "single_actor_url_segment"
-  post "single_actor_query", controller: "movies", action: "single_actor_query"
+   
+  get "/actors" => "movies#index"
+
+  get "/movies" => "movies_twos#index"
+
+  post "/actors" => "movies#create"
+
+  post "/movies" => "movies_twos#create"
+  
+  get "/actors/:id" => "movies#show"
+  
+  get "/movies/:id" => "movies_twos#show"
+
+  patch "/actors/:id" => "movies#update"
+
+  patch "/movies/:id" => "movies_twos#update"
+
+  delete "/actors/:id" => "movies#destroy"
+
+  delete "/movies/:id" => "movies_twos#destroy"
+
+
+
 end
