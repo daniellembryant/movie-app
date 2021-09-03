@@ -12,8 +12,11 @@ class MoviesTwosController < ApplicationController
       plot: params[:plot],
       english: params[:english]
     )
-    movie.save
-    render json: movie.as_json
+    if movie.save
+      render json: movie.as_json
+    else
+      render json: {errors: movie.errors.full_messages}
+    end
   end
 
   def show
@@ -27,8 +30,12 @@ class MoviesTwosController < ApplicationController
     movie.year = params[:year] || movie.year
     movie.plot = params[:plot] || movie.plot
     movie.english = params[:english] || movie.english
-    movie.save
-    render json: movie.as_json
+    
+    if movie.save
+      render json: movie.as_json
+    else
+      render json: {errors: movie.errors.full_messages}
+    end
     
   end
 

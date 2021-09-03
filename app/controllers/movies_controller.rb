@@ -12,11 +12,15 @@ class MoviesController < ApplicationController
       known_for: params[:known_for],
       gender: params[:gender],
       age: params[:age],
-      movie_id: params[:movi],
+      movie_id: params[:movie_id],
 
     )
-    actor.save
-    render json: actor.as_json
+    
+    if actor.save
+      render json: actor.as_json
+    else
+      render json: {errors: actor.errors.full_messages}
+    end
   end
 
   def show
@@ -32,9 +36,12 @@ class MoviesController < ApplicationController
     actor.gender = params[:gender] || actor.gender
     actor.age = params[:age] || actor.age
     actor.movie_id = params[:movie_id] || actor.movie_id
-    actor.save
-    render json: actor.as_json
     
+    if actor.save
+      render json: actor.as_json
+    else
+      render json: {errors: actor.errors.full_messages}
+    end
   end
 
   def destroy
