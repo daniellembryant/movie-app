@@ -1,7 +1,8 @@
+### Show Actor
 POST http://localhost:3000/single_actor_query?actor=violadavis
 Content-Type: application/json
 
-###
+### Create Actor
 POST http://localhost:3000/actors
 Content-Type: application/json
 
@@ -11,7 +12,7 @@ Content-Type: application/json
   "known_for" : "Girl Interrupted"
 }
 
-###
+### Create Movie
 POST http://localhost:3000/movies
 Content-Type: application/json
 
@@ -21,7 +22,7 @@ Content-Type: application/json
   "plot" : "Superstar LeBron James and his young son, Dom, get trapped in digital space by a rogue AI. To get home safely, LeBron teams up with Bugs Bunny, Daffy Duck and the rest of the Looney Tunes gang for a high-stakes basketball game against the AI's digitized champions of the court -- a powered-up roster called the Goon Squad."
 }
 
-###
+### Update Actor
 PATCH http://localhost:3000/actors/10
 Content-Type: application/json
 
@@ -29,7 +30,7 @@ Content-Type: application/json
   "known_for" : "The Help"
 }
 
-###
+### Update Movie
 PATCH http://localhost:3000/movies/3
 Content-Type: application/json
 
@@ -37,10 +38,29 @@ Content-Type: application/json
   "plot" : "Competition between the maid of honor and a bridesmaid, over who is the bride's best friend, threatens to upend the life of an out-of-work pastry chef/ childhood best friend."
 }
 
-###
+### Delete Actor
 DELETE http://localhost:3000/actors/11
 
-###
+### Delete Movie
 DELETE http://localhost:3000/movies/5
 
+### Users create (signup)
+POST http://localhost:3000/users
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzE2NjExMDR9.kzHkpNuc0KZJiXcgeZApZlB4NbR8At2NNboTI1LfoJs
+Content-Type: application/json
 
+{
+  "name": "Daniel Turner",
+  "email": "DT@gmail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "RA@gmail.com",
+  "password": "password"
+}

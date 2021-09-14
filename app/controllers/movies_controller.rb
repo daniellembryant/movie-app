@@ -1,8 +1,9 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
 
   def index
     actors = Actor.all
-    render json: actors.as_json
+    render json: actors
   end
 
   def create
