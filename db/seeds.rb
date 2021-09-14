@@ -1,13 +1,13 @@
-actor = Actor.new(first_name: "Viola", last_name: "Davis", known_for: "Doubt", movie_id: 1})
+# actor = Actor.new(first_name: "Viola", last_name: "Davis", known_for: "Doubt", movie_id: 1})
 
 
-actor = Actor.new({first_name: "Meryl", last_name: "Streep", known_for: "The Devil Wears Prada", movie_id: 1})
+# actor = Actor.new({first_name: "Meryl", last_name: "Streep", known_for: "The Devil Wears Prada", movie_id: 1})
 
 
-actor = Actor.new({first_name: "Dwayne", last_name: "Johnson", known_for: "Jungle Cruise", movie_id: 2})
+# actor = Actor.new({first_name: "Dwayne", last_name: "Johnson", known_for: "Jungle Cruise", movie_id: 2})
 
 
-actor = Actor.new({first_name: "Emily", last_name: "Blunt", known_for: "The Quiet Place 2", movie_id: 2})
+# actor = Actor.new({first_name: "Emily", last_name: "Blunt", known_for: "The Quiet Place 2", movie_id: 2})
 
 
 # actor = Actor.first
@@ -28,3 +28,18 @@ actor = Actor.new({first_name: "Emily", last_name: "Blunt", known_for: "The Quie
 
 # movie = Movie.new({title:"Grownups", year: 2010, plot: "After their high school basketball coach passes away, five good friends and former teammates reunite for a Fourth of July holiday weekend.." })
 # movie.save
+
+# Genre.create!([
+#   {name: "Comedy"},
+#   {name: "Fantasy"},
+#   {name: "Romantic Comedy"}
+# ])
+
+MovieGenre.create!([
+  {genre_id: 1, movie_id: 1},
+  {genre_id: 3, movie_id: 1},
+  {genre_id: 1, movie_id: 2},
+  {genre_id: 2, movie_id: 3},
+  {genre_id: 1, movie_id: 3},
+ 
+])
